@@ -1,7 +1,6 @@
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.ArrayList;
+import javax.swing.*;
 
 /**
  * Simple standalone login screen.
@@ -103,7 +102,16 @@ public class LoginScreen {
         for (User u : users) {
             if (u != null && username.equals(u.userName) && password.equals(u.password)) {
                 JOptionPane.showMessageDialog(frame, "Login successful. Welcome, " + u.name + "!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                // On success you can open the appropriate next screen here.
+                frame.dispose();
+                if ("Admin".equalsIgnoreCase(u.permission)) {
+                    // Open AdminScreen
+                    new AdminScreen();
+                } else if ("Client".equalsIgnoreCase(u.permission)) {
+                    // Open ClientScreen, pass the logged-in user
+                    new ClientScreen(u);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Unknown permission: " + u.permission, "Error", JOptionPane.ERROR_MESSAGE);
+                }
                 return;
             }
         }

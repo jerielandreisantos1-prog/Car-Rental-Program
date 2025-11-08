@@ -1,4 +1,4 @@
-public class Vehicle {
+public class Vehicle implements java.io.Serializable {
     private String type;
     private String price;
     private Boolean Available;
@@ -8,11 +8,21 @@ public class Vehicle {
         this.price = price;
         this.Available = Available;
     }
-    public Boolean checkAvailability(){
+    public String getType(){
+        return type;
+    }
+    public String getPrice(){
+        return price;
+    }
+    public Boolean getAvailability(){
         return Available;
     }
     public Boolean setAvailability(Boolean availability){
         this.Available = availability;
         return Available;
+    }
+    @Override
+    public String toString(){
+        return "Type:"+ this.type + " | Price per day:"+ this.price + " | Available:"+ this.Available;
     }
 }
