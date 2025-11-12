@@ -2,14 +2,14 @@ import java.util.*;
 
 public class User implements java.io.Serializable{ 
     public String name;
-    public int contact;
+    public String contact;
     public String email;
     public String userName;
     public String password;
     public String permission; 
     
 
-    User(String name, int contact, String email, String userName, String password){
+    User(String name, String contact, String email, String userName, String password){
         this.name = name;
         this.contact = contact;
         this.email = email;
@@ -23,8 +23,8 @@ public class User implements java.io.Serializable{
     public String getEmail(){
         return this.email;
     }
-    public String getcontact(){
-        return Integer.toString(this.contact);
+    public String getContact(){
+        return this.contact;
     }
     @ Override
     public String toString(){
@@ -32,7 +32,7 @@ public class User implements java.io.Serializable{
 }
 }
 class Admin extends User {
-    Admin(String name, int contact, String email, String userName, String password){
+    Admin(String name, String contact, String email, String userName, String password){
         super(name, contact, email, userName, password);
         this.permission = "Admin";
     }
@@ -41,10 +41,10 @@ class Admin extends User {
 }
 class Client extends User{
     public ArrayList<Transaction> transactionHistory;
-    Client(String name, int contact, String email, String userName, String password){
+    Client(String name, String contact, String email, String userName, String password){
         super(name, contact, email, userName, password);
         this.permission = "Client";
-        this.transactionHistory = new ArrayList<Transaction>();
+        
     }
     
 }

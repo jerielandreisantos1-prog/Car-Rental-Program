@@ -1,22 +1,8 @@
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.ArrayList;
+import javax.swing.*;
 
-/**
- * Simple standalone login screen.
- *
- * - Reads users from the project's serialized `userList` using FileManager.loadUserList("userList").
- * - Compares username and password fields against User.userName and User.password.
- * - Shows a friendly message on success/failure.
- *
- * Usage:
- * 1) Compile along with the project: javac *.java
- * 2) Run: java LoginScreen
- *
- * If you don't yet have a serialized `userList` file, create one using your
- * project's FileManager or a small bootstrap helper (Admin/Admin) so you can test.
- */
+
 public class LoginScreen {
 
     private JFrame frame;
@@ -103,7 +89,16 @@ public class LoginScreen {
         for (User u : users) {
             if (u != null && username.equals(u.userName) && password.equals(u.password)) {
                 JOptionPane.showMessageDialog(frame, "Login successful. Welcome, " + u.name + "!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                // On success you can open the appropriate next screen here.
+                frame.dispose();
+                if ("Admin".equalsIgnoreCase(u.permission)) {
+                    AdminScreen adminScreen = new AdminScreen();
+                    adminScreen.setVisible(true);
+                } else if ("Client".equalsIgnoreCase(u.permission)) {
+                    ClientScreen clientScreen = new ClientScreen(u);
+                    clientScreen.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Unknown permission: " + u.permission, "Error", JOptionPane.ERROR_MESSAGE);
+                }
                 return;
             }
         }

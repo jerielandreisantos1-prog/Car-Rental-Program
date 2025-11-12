@@ -1,0 +1,4 @@
+Transaction ID:TXN1762954886767 | Vehicle Reserved:Type:Suv | Price per day:3000 | Available:false | Start Date:20251113 | End Date:20251114 | Price:6000.0 | Status:Confirmed
+Transaction ID:TXN1762955124365 | Vehicle Reserved:Type:SUV | Price per day:3000 | Available:false | Start Date:20251114 | End Date:20251115 | Price:6000.0 | Status:Confirmed
+Transaction ID:TXN1762955177341 | Vehicle Reserved:Type:SUV | Price per day:3000 | Available:false | Start Date:20251116 | End Date:20251117 | Price:6000.0 | Status:Pending
+Transaction ID:TXN1762955502575 | Vehicle Reserved:Type:LUXSedan | Price per day:100000 | Available:false | Start Date:20251113 | End Date:20251115 | Price:300000.0 | Status:Confirmed

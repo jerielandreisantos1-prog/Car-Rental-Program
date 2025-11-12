@@ -1,0 +1,4 @@
+Type:SUV | Price per day:3000 | Available:false
+Type:LUXSedan | Price per day:100000 | Available:false
+Type:LamboHurracan | Price per day:1000000 | Available:true
+Type:Civic | Price per day:8000 | Available:true
